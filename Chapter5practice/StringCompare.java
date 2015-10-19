@@ -52,6 +52,7 @@ public class StringCompare
         {
            System.out.println("word1 is bigger than word2"); 
         }
+        
         }
       
         
