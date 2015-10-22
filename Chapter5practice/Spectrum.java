@@ -8,21 +8,34 @@ public class Spectrum
       Scanner in = new Scanner(System.in);
       
       System.out.print("Input a wavelength: ");
-      int wavelength = in.nextInt();
-      if (wavelength > pow(10,-1))
+      double wavelength = in.nextDouble();
+      if (wavelength > Math.pow(10,-1))
       {
+          System.out.println("Radio waves");
         }
-      else if (wavelength > pow(10,-3))
-      {}
-      else if ((wavelength > (7* pow(10,-7))))
+      else if (wavelength > Math.pow(10,-3))
       {
+          System.out.println("Microwaves");
         }
-      else if (wavelength > (4* pow(10,-7)))
+      else if ((wavelength > (7* Math.pow(10,-7))))
       {
+          System.out.println("Infrared");
         }
-      else if (wavelength > pow(10,-8))
+      else if (wavelength > (4* Math.pow(10,-7)))
       {
+          System.out.println("Visible light");
         }
-      else if (wavelength > pow(10,-
+      else if (wavelength > Math.pow(10,-8))
+      {
+          System.out.println("Ultraviolet");
+        }
+      else if (wavelength > Math.pow(10,-11))
+      {
+        System.out.println("X-rays");  
+        }
+      else
+      {
+          System.out.println("Gamma rays");
+        }
     }
 }
