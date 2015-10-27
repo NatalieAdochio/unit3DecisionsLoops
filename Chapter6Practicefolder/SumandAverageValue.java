@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class SumandAverageValue
 {
-  public static void main(String args[])
+  public static double averageInputs()
     {
         Scanner scan = new Scanner(System.in);
         double total = 0;
@@ -26,6 +26,6 @@ public class SumandAverageValue
         {
             average = total/count;
         }
-        System.out.println("Average: " + average);
+        return average;
     }
 }
