@@ -30,8 +30,16 @@ The universe of the Game of Life is an infinite two-dimensional orthogonal
 	moment at which this happens is sometimes called a tick (in other words,
 	each generation is a pure function of the preceding one). The rules
 	continue to be applied repeatedly to create further generations.
-
-
+***MY WRITTEN ONES***
+**The grid is 6x6
+**The grid is hardcoded 
+**goes through 3 generations
+DDDDDD
+DADDAD
+DDAADD
+DDAADD
+DADDAD
+DDDDDD
 Nonfunctional Requirements:
 
 * the program must be implemented in Java and utilize the GridWorld platform
