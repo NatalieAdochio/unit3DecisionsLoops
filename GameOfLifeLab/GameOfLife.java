@@ -118,7 +118,30 @@ public class GameOfLife
         Grid<Actor> grid = world.getGrid();
         
         // insert magic here...
-        
+        for(int row = 0; row <= 5; row++)
+        {
+            for(int col = 0; col <= 5; col++)
+            {
+                Location loc = new Location(row,col);
+                ArrayList<Location> onTheGrid = grid.getOccupiedAdjacentLocations(Location loc);
+                if(( onTheGrid.size()<= 2)&&(onTheGrid.size() >=3) && (this.getActor(row,col)!=null))
+                {
+                   //this would make an alive cell 
+                }
+                if(( onTheGrid.size() < 2))
+                {
+                    //this would kill a cell
+                }
+                if ((onTheGrid.size()>3)&& (this.getActor(row,col) == null))
+                {
+                    //this will kill a alive cell
+                }
+                if ((onTheGrid.size()==3)&& (this.getActor(row,col) != null))
+                {
+                    //this will make alive
+                }
+            }
+        }
     }
     
     /**
