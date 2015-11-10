@@ -4,6 +4,7 @@ import info.gridworld.actor.Rock;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Location;
+import java.util.ArrayList;
 
 /**
  * Game of Life starter code. Demonstrates how to create and populate the game using the GridWorld framework.
@@ -37,7 +38,8 @@ public class GameOfLife
         
         // populate the game
         populateGame();
-        
+        world.show();
+        createNextGeneration();
         // display the newly constructed and populated world
         world.show();
         
@@ -123,22 +125,26 @@ public class GameOfLife
             for(int col = 0; col <= 5; col++)
             {
                 Location loc = new Location(row,col);
-                ArrayList<Location> onTheGrid = grid.getOccupiedAdjacentLocations(Location loc);
-                if(( onTheGrid.size()<= 2)&&(onTheGrid.size() >=3) && (this.getActor(row,col)!=null))
+                ArrayList<Location> onTheGrid = grid.getOccupiedAdjacentLocations(loc);
+                if(( onTheGrid.size()<= 2)&&(onTheGrid.size() >=3) && (this.getActor(row,col)==null))
                 {
                    //this would make an alive cell 
+                   
                 }
                 if(( onTheGrid.size() < 2))
                 {
-                    //this would kill a cell
+                   //this would kill a cell
+                   
                 }
-                if ((onTheGrid.size()>3)&& (this.getActor(row,col) == null))
+                if ((onTheGrid.size()>3)&& (this.getActor(row,col) != null))
                 {
                     //this will kill a alive cell
+                   
                 }
-                if ((onTheGrid.size()==3)&& (this.getActor(row,col) != null))
+                if ((onTheGrid.size()==3)&& (this.getActor(row,col) == null))
                 {
                     //this will make alive
+                   
                 }
             }
         }
