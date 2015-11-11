@@ -38,8 +38,7 @@ public class GameOfLife
         
         // populate the game
         populateGame();
-        world.show();
-        createNextGeneration();
+       
         // display the newly constructed and populated world
         world.show();
         
@@ -110,7 +109,7 @@ public class GameOfLife
      * @post    the world has been populated with a new grid containing the next generation
      * 
      */
-    private void createNextGeneration()
+    public void createNextGeneration()
     {
         /** You will need to read the documentation for the World, Grid, and Location classes
          *      in order to implement the Game of Life algorithm and leverage the GridWorld framework.
@@ -120,6 +119,8 @@ public class GameOfLife
         Grid<Actor> grid = world.getGrid();
         
         // insert magic here...
+        ArrayList<Location> aliveCell = new ArrayList<Location>();
+        ArrayList<Location> deadCell = new ArrayList<Location>();
         for(int row = 0; row <= 5; row++)
         {
             for(int col = 0; col <= 5; col++)
@@ -129,24 +130,35 @@ public class GameOfLife
                 if(( onTheGrid.size()<= 2)&&(onTheGrid.size() >=3) && (this.getActor(row,col)==null))
                 {
                    //this would make an alive cell 
-                   
+                   aliveCell.add(loc); 
                 }
                 if(( onTheGrid.size() < 2))
                 {
                    //this would kill a cell
-                   
+                   deadCell.add(loc);
                 }
                 if ((onTheGrid.size()>3)&& (this.getActor(row,col) != null))
                 {
                     //this will kill a alive cell
-                   
+                   deadCell.add(loc);
                 }
                 if ((onTheGrid.size()==3)&& (this.getActor(row,col) == null))
                 {
                     //this will make alive
-                   
+                   aliveCell.add(loc);
                 }
             }
+        }
+        for (Location location: aliveCell)
+        {
+            //alive cell
+            Rock rocky = new Rock();
+            grid.put(location,rocky );
+        }
+        for (Location location: deadCell)
+        {
+            //dead cell
+            grid.remove(location);
         }
     }
     
